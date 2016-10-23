@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Technology</span> {{vm.technology.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.technology.name}}</span>
+        </dd>
+        <dt><span>Version</span></dt>
+        <dd>
+            <span>{{vm.technology.version}}</span>
+        </dd>
+        <dt><span>Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.technology.projectId})">{{vm.technology.projectId}}</a>
+        </dd>
+        <dt><span>Technology Category</span></dt>
+        <dd>
+            <a ui-sref="technology-category-detail({id:vm.technology.technologyCategoryId})">{{vm.technology.technologyCategoryId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="technology-detail.edit({id:vm.technology.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

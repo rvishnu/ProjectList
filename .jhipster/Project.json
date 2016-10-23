@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "department",
+            "otherEntityName": "department",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "employee",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "technology",
+            "otherEntityName": "technology",
+            "otherEntityRelationshipName": "project"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sourceCodeLocation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vendorProduct",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20161023015549",
+    "entityTableName": "project",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "angularSuffix": "mySuffix"
+}

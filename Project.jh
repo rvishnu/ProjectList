@@ -1,0 +1,97 @@
+entity Country {
+	countryName String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Location {
+	streetAddress1 String,
+    streetAddress2 String,
+	postalCode String,
+	city String,
+	stateProvince String
+}
+
+entity Department {
+	departmentName String required
+}
+
+entity Company {
+	companyName String
+}
+
+/**
+ * The Employee entity.
+ */
+entity Employee {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String
+}
+
+entity Project {
+	name String,
+    url String,
+    sourceCodeLocation String,
+	vendorProduct Boolean
+}
+
+entity Technology {
+	name String,
+    version String
+}
+
+entity TechnologyCategory{
+	categoryId String,
+    parentCategoryId String,
+    path String,
+    name String
+}
+
+relationship OneToOne {
+	Technology{technologyCategory} to TechnologyCategory
+}
+
+relationship OneToOne {
+	Location{country} to Country
+}
+
+relationship OneToOne {
+	Department{location} to Location
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+
+    Company{departments} to Department,
+    
+    Department{projects} to Project,
+    
+    
+	Project{employees} to Employee,
+    
+    Project{technologies} to Technology,
+	/**
+	* A relationship
+	*/
+	Department{employee} to
+	/**
+	* Another side of the same relationship
+	*/
+	Employee
+}
+
+// Set pagination options
+paginate Employee with infinite-scroll
+paginate Project with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with mySuffix
